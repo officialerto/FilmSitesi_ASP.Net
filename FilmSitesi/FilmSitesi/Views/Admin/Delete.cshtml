@@ -1,0 +1,154 @@
+﻿@model FilmSitesi.Models.film
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .btn-danger {
+        background-color: #ff0000; /* Yeşil arkaplan rengi */
+        color: white; /* Beyaz yazı rengi */
+        border: none; /* Sınır yok */
+        width: 100%;
+        padding: 10px 20px; /* Buton içerisindeki boşluk */
+        text-align: center; /* Yazı ortalanıyor */
+        text-decoration: none; /* Alt çizgi yok */
+        display: inline-block; /* Butonun satırda yer almasını sağlıyor */
+        font-size: 16px; /* Yazı boyutu */
+        margin: 10px auto; /* Butonlar arasındaki boşluk */
+        cursor: pointer; /* Fare imlecini el işareti olarak değiştiriyor */
+        border-radius: 5px; /* Butonun köşelerini yuvarlatıyor */
+        transition-duration: 0.4s; /* Butona üzerine gelince animasyon */
+    }
+
+        .btn-danger:hover {
+            background-color: white; /* Beyaz arkaplan rengi */
+            color: #ff0000; /* Yeşil yazı rengi */
+        }
+
+    .btn-primary {
+        background-color: dodgerblue; /* Yeşil arkaplan rengi */
+        color: dodgerblue; /* Beyaz yazı rengi */
+        border: none; /* Sınır yok */
+        width: 26%;
+        color: white;
+        padding: 10px 20px; /* Buton içerisindeki boşluk */
+        text-align: center; /* Yazı ortalanıyor */
+        text-decoration: none; /* Alt çizgi yok */
+        display: inline-block; /* Butonun satırda yer almasını sağlıyor */
+        font-size: 16px; /* Yazı boyutu */
+        /* Butonlar arasındaki boşluk */
+        cursor: pointer; /* Fare imlecini el işareti olarak değiştiriyor */
+        border-radius: 5px; /* Butonun köşelerini yuvarlatıyor */
+        transition-duration: 0.4s; /* Butona üzerine gelince animasyon */
+    }
+
+        .btn-primary:hover {
+            background-color: white; /* Beyaz arkaplan rengi */
+            color: dodgerblue; /* Yeşil yazı rengi */
+        }
+
+    dt {
+        font-size:25px;
+    }
+
+</style>
+<br />
+<h2>EMİNSEN KANKAM ?</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.releaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.releaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imdbScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imdbScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.myScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.myScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image.title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </div>
+
+            <div class="col-md-offset-2 col-md-10">
+                <a href="@Url.Action("Index")" class="btn btn-primary">
+                    Back to List
+                </a>
+            </div>
+        </div>
+    }
+</div>

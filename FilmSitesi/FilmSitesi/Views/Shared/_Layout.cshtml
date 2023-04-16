@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERTOFILMS</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding-top: 0px;
+        }
+
+        .navbr-brand {
+            font-size: 50px;
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #191a1d; height: 100px;">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("ERTOFILMS", "Index", "Admin", new { area = "" }, new { @class = "navbr-brand" })
+            </div>
+            <div class="navbar-header">
+                @Html.ActionLink("ÇIKIŞ YAP", "Index", "Logout", new { area = "" }, new { @class = "navbr-brand" })
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <br />
+        <br />
+        <br />
+
+
+
+
+    </div>
+
+
+    <footer style="margin-bottom: 14px;text-align: center; display: flex; justify-content: center; align-items: center;">
+        <p>&copy; ERTO FİLMLERİ</p>
+    </footer>
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

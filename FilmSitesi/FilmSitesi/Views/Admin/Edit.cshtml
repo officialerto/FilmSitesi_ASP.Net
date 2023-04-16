@@ -1,0 +1,153 @@
+﻿@model FilmSitesi.Models.film
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .btn-default {
+        background-color: #4CAF50; /* Yeşil arkaplan rengi */
+        color: white; /* Beyaz yazı rengi */
+        border: none; /* Sınır yok */
+        width: 100%;
+        padding: 10px 20px; /* Buton içerisindeki boşluk */
+        text-align: center; /* Yazı ortalanıyor */
+        text-decoration: none; /* Alt çizgi yok */
+        display: inline-block; /* Butonun satırda yer almasını sağlıyor */
+        font-size: 16px; /* Yazı boyutu */
+        margin: 10px auto; /* Butonlar arasındaki boşluk */
+        cursor: pointer; /* Fare imlecini el işareti olarak değiştiriyor */
+        border-radius: 5px; /* Butonun köşelerini yuvarlatıyor */
+        transition-duration: 0.4s; /* Butona üzerine gelince animasyon */
+    }
+
+        .btn-default:hover {
+            background-color: white; /* Beyaz arkaplan rengi */
+            color: #4CAF50; /* Yeşil yazı rengi */
+        }
+
+    .btn-primary {
+        background-color: dodgerblue; /* Yeşil arkaplan rengi */
+        color: dodgerblue; /* Beyaz yazı rengi */
+        border: none; /* Sınır yok */
+        width: 26%;
+        color: white;
+        padding: 10px 20px; /* Buton içerisindeki boşluk */
+        text-align: center; /* Yazı ortalanıyor */
+        text-decoration: none; /* Alt çizgi yok */
+        display: inline-block; /* Butonun satırda yer almasını sağlıyor */
+        font-size: 16px; /* Yazı boyutu */
+        /* Butonlar arasındaki boşluk */
+        cursor: pointer; /* Fare imlecini el işareti olarak değiştiriyor */
+        border-radius: 5px; /* Butonun köşelerini yuvarlatıyor */
+        transition-duration: 0.4s; /* Butona üzerine gelince animasyon */
+    }
+
+        .btn-primary:hover {
+            background-color: white; /* Beyaz arkaplan rengi */
+            color: dodgerblue; /* Yeşil yazı rengi */
+        }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <br />
+    <h1>FİLM DÜZENLE</h1>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id)
+
+    <div class="form-group" style="margin-bottom:6px;">
+        @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:6px;">
+        @Html.LabelFor(model => model.category, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.category, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.category, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:6px;">
+        @Html.LabelFor(model => model.length, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.length, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.length, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:6px;">
+        @Html.LabelFor(model => model.releaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.releaseDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.releaseDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:6px;">
+        @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:6px;">
+        @Html.LabelFor(model => model.comment, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.comment, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.comment, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:6px;">
+        @Html.LabelFor(model => model.imdbScore, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.imdbScore, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.imdbScore, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:6px;">
+        @Html.LabelFor(model => model.myScore, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.myScore, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.myScore, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:6px;">
+        @Html.LabelFor(model => model.image_id, "image_id", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("image_id", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.image_id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+
+        <div class="col-md-offset-2 col-md-10">
+            <a href="@Url.Action("Index")" class="btn btn-primary">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

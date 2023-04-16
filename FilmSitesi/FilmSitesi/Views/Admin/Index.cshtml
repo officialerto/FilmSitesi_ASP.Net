@@ -1,0 +1,148 @@
+﻿@model IEnumerable<FilmSitesi.Models.film>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    .btn-f {
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        text-align: center;
+        padding: 5px 5px;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+        transition: background-color 0.3s;
+        margin-bottom: 8px;
+    }
+
+        .btn-f:hover {
+            background-color: #0069d9;
+            color: #fff;
+        }
+
+    .btn-s {
+        background-color: red;
+        border: none;
+        color: #fff;
+        text-align: center;
+        padding: 5px 5px;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+        transition: background-color 0.3s;
+        margin-bottom: 5px;
+    }
+
+        .btn-s:hover {
+            background-color: darkred;
+            color: #fff;
+        }
+
+    .btn-primary {
+        margin-bottom: 14px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+    }
+</style>
+
+<br />
+<h1 style="margin-bottom: 14px; text-align: center; display: flex; justify-content: center; align-items: center;">ADMİN SAYFASI</h1>
+
+
+<a href="@Url.Action("Create")" class="btn btn-primary">EKLE BABAM EKLE</a>
+<br />
+
+<table class="table">
+    <tr style="font-size:20px;">
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.releaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imdbScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.myScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image.title)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.releaseDate)
+            </td>
+            <td style="text-align:justify">
+                @{
+                    string description = item.description;
+                    if (description.Length > 135)
+                    {
+                        description = description.Substring(0, 135) + "..";
+                    }
+                }
+                @Html.DisplayFor(modelItem => description)
+            </td>
+            <td style="text-align:justify">
+                @{
+                    string comment = item.comment;
+                    if (description.Length > 135)
+                    {
+                        comment = comment.Substring(0, 135) + "..";
+                    }
+                }
+                @Html.DisplayFor(modelItem => comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imdbScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.myScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image.title)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn-f" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn-s" })
+
+            </td>
+        </tr>
+    }
+
+</table>
