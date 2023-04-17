@@ -5,77 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="table" style="color:white">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.length)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.releaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.imdbScore)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.myScore)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.image.title)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.length)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.releaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.comment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.imdbScore)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.myScore)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.image.title)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
-            </td>
-        </tr>
+<style>
+    .navbr-bran {
+        position: absolute;
+        left: 44%;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        font-size: 50px;
     }
-
-</table>
+</style>
 
 
 <!DOCTYPE html>
@@ -84,7 +22,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Planet</title>
+    <title>FİLMS</title>
     <link href="/free_movie_zip/css/bootstrap.min.css" rel="stylesheet">
     <link href="/free_movie_zip/css/font-awesome.min.css" rel="stylesheet">
     <link href="/free_movie_zip/css/global.css" rel="stylesheet">
@@ -98,14 +36,18 @@
         <div class="container-xl">
             <div class="row center_o1">
                 <div class="col-md-5">
+                    <br />
                     <div class="center_o1l">
-                        <h2 class="mb-0">FİLMLER</h2>
+                        <h2 class="mb-0">DEHŞET-ÜL VAHŞETLER</h2>
                     </div>
+                    <br />
                 </div>
                 <div class="col-md-7">
+                    <br />
                     <div class="center_o1r text-end">
-                        <h6 class="mb-0 col_red"><a href="#">Home</a> <span class="me-2 ms-2 text-light"><i class="fa fa-caret-right align-middle"></i></span> FİLMLER</h6>
+                        <h6 class="mb-0 col_red"><a href="#">Home</a> <span class="me-2 ms-2 text-light"><i class="fa fa-caret-right align-middle"></i></span> EFSANELER</h6>
                     </div>
+                    <br />
                 </div>
             </div>
         </div>
@@ -114,113 +56,49 @@
     <section id="team" class="pt-4 pb-4 bg_grey">
         <div class="container-xl">
             <div class="team_1i row">
-                <div class="col-md-4">
-                    <div class="team_1i1 clearfix position-relative">
-                        <div class="team_1i1i clearfix">
-                            <div class="grid clearfix">
-                                <figure class="effect-jazz mb-0">
-                                    <a href="#"><img src="/free_movie_zip/img/37.jpg" class="w-100" alt="abc"></a>
-                                </figure>
+                @foreach (var x in Model)
+                {
+                    <div class="col-md-4" style="margin-bottom:23px;">
+                        <div class="team_1i1 clearfix position-relative">
+                            <div class="team_1i1i clearfix">
+                                <div class="grid clearfix">
+                                    <figure class="effect-jazz mb-0">
+                                        <a href="#">
+                                            <img src="~/images/@x.name" class="w-100" alt="abc">
+                                        </a>
+                                    </figure>
+                                </div>
                             </div>
-                        </div>
-                        <div class="team_1i1i1 clearfix position-absolute w-100 bottom-0">
-                            <h4 class="col_red">Semp Porta</h4>
-                            <h6>Manager</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Aliquam ut elit venenatis, congue dolor ut, mattis leo</p>
+                            <div class="team_1i1i1 clearfix position-absolute w-100 bottom-0">
+                                <h4 class="col_red" style=" font-size:30px;">@x.name</h4>
+                                <h6>@x.category</h6>
+                                <br />
+                                <br />
+                                <p style="text-align:justify">@x.description.Substring(0, 300)...</p>
 
-                        </div>
-                    </div>
-                </div>
-                @*<div class="col-md-4">
-                    <div class="team_1i1 clearfix position-relative">
-                        <div class="team_1i1i clearfix">
-                            <div class="grid clearfix">
-                                <figure class="effect-jazz mb-0">
-                                    <a href="#"><img src="/free_movie_zip/img/38.jpg" class="w-100" alt="abc"></a>
-                                </figure>
                             </div>
                         </div>
-                        <div class="team_1i1i1 clearfix position-absolute w-100 bottom-0">
-                            <h4 class="col_red">Dapibus Diam</h4>
-                            <h6>Trainer</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Aliquam ut elit venenatis, congue dolor ut, mattis leo</p>
+                    </div>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_1i1 clearfix position-relative">
-                        <div class="team_1i1i clearfix">
-                            <div class="grid clearfix">
-                                <figure class="effect-jazz mb-0">
-                                    <a href="#"><img src="/free_movie_zip/img/39.jpg" class="w-100" alt="abc"></a>
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="team_1i1i1 clearfix position-absolute w-100 bottom-0">
-                            <h4 class="col_red">Eget Nulla</h4>
-                            <h6>Designer</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Aliquam ut elit venenatis, congue dolor ut, mattis leo</p>
-    
-                        </div>
-                    </div>
-                </div>*@
+                }
+
             </div>
-            @*<div class="team_1i row mt-4">
-                <div class="col-md-4">
-                    <div class="team_1i1 clearfix position-relative">
-                        <div class="team_1i1i clearfix">
-                            <div class="grid clearfix">
-                                <figure class="effect-jazz mb-0">
-                                    <a href="#"><img src="/free_movie_zip/img/40.jpg" class="w-100" alt="abc"></a>
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="team_1i1i1 clearfix position-absolute w-100 bottom-0">
-                            <h4 class="col_red">Semp Porta</h4>
-                            <h6>Manager</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Aliquam ut elit venenatis, congue dolor ut, mattis leo</p>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_1i1 clearfix position-relative">
-                        <div class="team_1i1i clearfix">
-                            <div class="grid clearfix">
-                                <figure class="effect-jazz mb-0">
-                                    <a href="#"><img src="/free_movie_zip/img/41.jpg" class="w-100" alt="abc"></a>
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="team_1i1i1 clearfix position-absolute w-100 bottom-0">
-                            <h4 class="col_red">Dapibus Diam</h4>
-                            <h6>Trainer</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Aliquam ut elit venenatis, congue dolor ut, mattis leo</p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_1i1 clearfix position-relative">
-                        <div class="team_1i1i clearfix">
-                            <div class="grid clearfix">
-                                <figure class="effect-jazz mb-0">
-                                    <a href="#"><img src="/free_movie_zip/img/42.jpg" class="w-100" alt="abc"></a>
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="team_1i1i1 clearfix position-absolute w-100 bottom-0">
-                            <h4 class="col_red">Eget Nulla</h4>
-                            <h6>Designer</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Aliquam ut elit venenatis, congue dolor ut, mattis leo</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>*@
         </div>
+
     </section>
+
+
+    <div style="text-align:center; font-size:50px; margin-bottom:4px; margin-top:18px;">
+        @if (Session["isLoggedIn"] != null && (bool)Session["isLoggedIn"])
+        {
+            <h2><a href="@Url.Action("Logout", "Login")">ÇIKIŞ YAP</a></h2>
+        }
+        else
+        {
+            <h2><a href="@Url.Action("Index", "Login")">GİRİŞ YAP</a></h2>
+        }
+    </div>
 
 
 

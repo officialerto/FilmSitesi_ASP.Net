@@ -73,3 +73,4 @@ C:\Users\Ertugrul\source\repos\FilmSitesi\FilmSitesi\obj\Debug\FilmSitesi.csproj
 C:\Users\Ertugrul\source\repos\FilmSitesi\FilmSitesi\obj\Debug\FilmSitesi.csproj.CopyComplete
 C:\Users\Ertugrul\source\repos\FilmSitesi\FilmSitesi\obj\Debug\FilmSitesi.dll
 C:\Users\Ertugrul\source\repos\FilmSitesi\FilmSitesi\obj\Debug\FilmSitesi.pdb
+C:\Users\Ertugrul\source\repos\FilmSitesi\FilmSitesi\obj\Debug\FilmSitesi.csproj.AssemblyReference.cache

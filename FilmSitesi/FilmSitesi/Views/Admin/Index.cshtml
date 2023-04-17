@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <style>
 
     .btn-f {
@@ -55,7 +56,8 @@
 </style>
 
 <br />
-<h1 style="margin-bottom: 14px; text-align: center; display: flex; justify-content: center; align-items: center;">ADMİN SAYFASI</h1>
+<h1 style="margin-bottom: 14px; text-align: center; display: flex;
+justify-content: center; align-items: center;">ADMİN SAYFASI</h1>
 
 
 <a href="@Url.Action("Create")" class="btn btn-primary">EKLE BABAM EKLE</a>
@@ -135,7 +137,7 @@
                 @Html.DisplayFor(modelItem => item.myScore)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.image.title)
+                <img src="@Url.Content(item.image.ImagePath)" alt="@item.image.title" />
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn-f" })

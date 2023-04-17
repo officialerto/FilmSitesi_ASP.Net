@@ -12,6 +12,7 @@ namespace FilmSitesi.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
 
     public partial class film
     {
@@ -40,8 +41,11 @@ namespace FilmSitesi.Models
         [Display(Name = "MYMDB")]
         [Required(ErrorMessage = "Gözlem Yeteneði BEST Olan Kaç Veriyon Puan?")]
         public string myScore { get; set; }
+
         public Nullable<int> image_id { get; set; }
     
         public virtual image image { get; set; }
+
+        public string ImageFile { get; set; }
     }
 }

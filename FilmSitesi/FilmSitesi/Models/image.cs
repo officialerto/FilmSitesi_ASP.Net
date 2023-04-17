@@ -12,6 +12,7 @@ namespace FilmSitesi.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
 
     public partial class image
     {
@@ -20,7 +21,8 @@ namespace FilmSitesi.Models
         {
             this.films = new HashSet<film>();
         }
-    
+        [Display(Name = "Resim")]
+        [Required(ErrorMessage = "Resimsiz Filme Bakýlmaz!")]
         public int id { get; set; }
         [Display(Name = "Resim")]
         [Required(ErrorMessage = "Resim Olmadan Film MÝ ÝZLENÝR LA?")]
@@ -29,5 +31,7 @@ namespace FilmSitesi.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<film> films { get; set; }
+
+
     }
 }
